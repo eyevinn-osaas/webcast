@@ -1,0 +1,22 @@
+--- broadcaster.js.orig	2024-06-26 14:08:05.919919003 +0000
++++ broadcaster.js	2024-06-26 14:08:59.223262014 +0000
+@@ -54,9 +54,9 @@
+     getProtocolExtensions() {
+         const linkTypes = this.broadcaster.getLinkTypes(WHIPResource_1.IANA_PREFIX);
+         return [
+-            `<${this.broadcaster.getBaseUrl()}/channel>;rel=${linkTypes.list}`,
+-            `<${this.broadcaster.getBaseUrl()}/channel/${this.channelId}>;rel=${linkTypes.channel}`,
+-            `<${this.broadcaster.getBaseUrl()}/mpd/${this.channelId}>;rel=${linkTypes.mpd}`,
++            `</broadcaster/channel>;rel=${linkTypes.list}`,
++            `</broadcaster/channel/${this.channelId}>;rel=${linkTypes.channel}`,
++            `</broadcaster/mpd/${this.channelId}>;rel=${linkTypes.mpd}`,
+         ];
+         /*
+         return [
+@@ -76,4 +76,4 @@
+     }
+ }
+ exports.WRTCBroadcaster = WRTCBroadcaster;
+-//# sourceMappingURL=broadcaster.js.map
+\ No newline at end of file
++//# sourceMappingURL=broadcaster.js.map

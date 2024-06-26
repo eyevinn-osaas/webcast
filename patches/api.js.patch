@@ -1,0 +1,18 @@
+--- api.js.orig	2024-06-26 13:31:48.370310005 +0000
++++ api.js	2024-06-26 13:33:29.142461010 +0000
+@@ -44,7 +44,7 @@
+             const sdpAnswer = await resource.sdpAnswer();
+             reply.headers({
+                 "Content-Type": "application/sdp",
+-                "Location": `${opts.instance.getServerAddress()}${opts.prefix}/whip/${type}/${resource.getId()}`,
++                "Location": `${opts.prefix}/whip/${type}/${resource.getId()}`,
+             });
+             const links = addIceLinks(resource.getIceServers(), request.headers["authorization"])
+                 .concat(addProtocolExtensions(resource));
+@@ -104,4 +104,4 @@
+     done();
+ }
+ exports.default = default_1;
+-//# sourceMappingURL=api.js.map
+\ No newline at end of file
++//# sourceMappingURL=api.js.map

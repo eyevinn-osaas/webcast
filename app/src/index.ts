@@ -5,7 +5,7 @@ const { NODE_ENV } = process.env;
 let EndpointUrl = "http://localhost:8000/api/v1/whip/broadcaster";
 
 if (NODE_ENV !== "development") {
-  EndpointUrl = process.env.WHIP_ENDPOINT_URL;
+  EndpointUrl = process.env.WHIP_ENDPOINT_URL || window.location.origin + "/api/v1/whip/broadcaster";
 }
 
 function isClipboardAvailable() {
@@ -20,7 +20,7 @@ function base64encode(input: string) {
 async function getChannelUrl(client: WHIPClient) {
   let channelUrl: string;
   (await client.getResourceExtensions()).forEach(link => {
-    if (link.match(/rel=urn:ietf:params:whip:eyevinn-wrtc-channel/) || link.match(/rel=urn:ietf:params:whip:whpp/)) {
+    if (link.match(/rel=urn:ietf:params:whip:eyevinn-wrtc-channel/) || link.match(/rel=urn:ietf:params:whip:whpp/)) {
       const m = link.match(/<?([^>]*)>/);
       channelUrl = m[1];
     }
