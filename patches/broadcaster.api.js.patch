@@ -1,0 +1,18 @@
+--- api.js.orig	2024-06-27 08:32:58.583270008 +0000
++++ api.js	2024-06-27 08:33:56.543582007 +0000
+@@ -34,7 +34,7 @@
+             reply.code(201)
+                 .headers({
+                 'Content-type': 'application/whpp+json',
+-                'Location': broadcaster.getBaseUrl() + "/channel/" + channelId + '/' + viewer.getId()
++                'Location': "/broadcaster/channel/" + channelId + '/' + viewer.getId()
+             })
+                 .send(responseBody);
+         }
+@@ -131,4 +131,4 @@
+     done();
+ }
+ exports.default = default_1;
+-//# sourceMappingURL=api.js.map
+\ No newline at end of file
++//# sourceMappingURL=api.js.map
