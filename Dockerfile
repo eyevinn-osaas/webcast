@@ -14,6 +14,7 @@ RUN cd /app/node_modules/@eyevinn/whip-endpoint/dist && patch -u < /app/patches/
 RUN cd /app/node_modules/@eyevinn/whip-endpoint/dist/wrtc && patch -u < /app/patches/broadcaster.js.patch
 RUN cd /app/node_modules/@eyevinn/whip-endpoint/dist/broadcaster && patch -u < /app/patches/broadcaster.api.js.patch
 RUN cd /app/node_modules/@eyevinn/webrtc-player/dist/ && patch -u < /app/patches/main.js.patch
+RUN cp /app/patches/webplayer.min.js /app/node_modules/@eyevinn/web-player/dist/webplayer.min.js
 RUN npm run build
 
 COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
