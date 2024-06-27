@@ -1,0 +1,11 @@
+--- main.js.orig	2024-06-27 08:47:20.195576010 +0000
++++ main.js	2024-06-27 08:47:32.044393001 +0000
+@@ -41,7 +41,7 @@
+         if (!response.ok) return;
+         const offerResponse = await response.json();
+         const locationHeader = response.headers.get('location');
+-        this.resourceUrl = new URL(locationHeader);
++        this.resourceUrl = new URL(window.location.origin + locationHeader);
+         if (!this.supportsTrickleIce()) this.waitingForCandidates = true;
+         await this.localPeer.setRemoteDescription({
+             type: 'offer',

@@ -13,6 +13,7 @@ RUN npm install
 RUN cd /app/node_modules/@eyevinn/whip-endpoint/dist && patch -u < /app/patches/api.js.patch
 RUN cd /app/node_modules/@eyevinn/whip-endpoint/dist/wrtc && patch -u < /app/patches/broadcaster.js.patch
 RUN cd /app/node_modules/@eyevinn/whip-endpoint/dist/broadcaster && patch -u < /app/patches/broadcaster.api.js.patch
+RUN cd /app/node_modules/@eyevinn/webrtc-player/dist/ && patch -u < /app/patches/main.js.patch
 RUN npm run build
 
 COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
