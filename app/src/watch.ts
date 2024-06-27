@@ -25,6 +25,9 @@ export async function watch(channelUrl) {
     const root = document.querySelector<HTMLDivElement>('#player');
     const player = WebPlayer(root, { castAppId: undefined });
     try {
+      if (channelUrl.match(/^\//)) {
+        channelUrl = window.location.origin + channelUrl;
+      }
       await player.load(channelUrl);
       player.play();
     } catch(err) {
